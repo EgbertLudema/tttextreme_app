@@ -16,12 +16,27 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # What I've done:
 
->**Note**: All Screens and other sources are build in "/src/", and I updated the "App.tsx" file!
+>**Note**: All Screens and other sources are build in "/src/", and I updated the "App.tsx" file! I developed the app using a android studio emulator(I haven't tested anything on IOS yet).
 
 ## Build a LandingScreen:
-First I build a landing screen. On the landing screen the user should be able to pick either to play as a guest or login. 
+First I build a landing screen. On the landing screen the user should be able to pick either to play as a guest or login. Clicking on the guest button directs the user to the Main Navigator. The main navigator shows the GuestScreen if the user is not logged in. The Login button redirects the user to LoginScreen.
+
+## Guest screen:
+As soon you the user enters the guest screen they get to see 2 buttons (classic and extreme) that alternate the board between the classic and extreme version of the game. The games played is offline(local).
+
+## Login screen:
+Before I could build a login screen I had to build a API on my server. Currently I have 1 API call that gathers the userinfo of the given username.
+
+The login screen contains a form where the user can fill in their cridentials. Once the user clicks the login button JS tries to fetch the API response sending the login cridentials. The API compares the send password with the password of the username it gathered from the database. If it's a match the response is succes and the user is being redirected to the Main Navigation.
+
+## Main Navigation
+The Main navigator is the bottom menu of the app and handles showing different screens. It also checks if the user logged in or not. If so is shows the UserScreen and if not it shows the GuestScreen.
+
+## UserScreen
+Currently I'm working on the UserScreen. So nothing to see here :P
 
 
+>**Note**: All below is documentation for developing the app!!!!
 
 # Getting Started(Building the app)
 
