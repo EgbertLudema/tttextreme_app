@@ -78,3 +78,5 @@ The Main navigator is the bottom menu of the app and handles showing different s
 
 ## UserScreen, ScoreboardScreen & ProfileScreen
 Currently I'm working on the these screens. So nothing to see here :P
+
+-----

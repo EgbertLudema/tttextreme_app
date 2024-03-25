@@ -10,6 +10,7 @@ const LoginScreen = ({ navigation }) => {
 
     const handleLogin = async () => {
         try {
+            // Fetches the API request, sending the cridentials for the API to match in the database.
             const response = await fetch('https://tttextreme.com/api/userLogin.php', {
                 method: 'POST',
                 headers: {
@@ -24,8 +25,9 @@ const LoginScreen = ({ navigation }) => {
             const json = await response.json();
 
             if (json.success) {
+                // If succesfull it updates the AuthContext
                 login();
-                
+                // Navigates to the Main(the main handles whether to shows the right screen based on the authentication status)
                 navigation.navigate('Main');
             } else {
                 Alert.alert("Login Failed", json.message || "Invalid credentials");

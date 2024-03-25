@@ -10,6 +10,7 @@ const GuestScreen = () => {
     const [selectedGame, setSelectedGame] = useState('classic'); // 'classic' or 'extreme'
 
     return (
+        // Displays classis or extreme tic tac toe based on selected game
         <View style={styles.container}>
             <View style={styles.selectionContainer}>
                 <Button title="Classic Tic-Tac-Toe" onPress={() => setSelectedGame('classic')} />
