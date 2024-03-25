@@ -14,7 +14,16 @@ Command: "npx react-native run-android"
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# What I've done:
+
+>**Note**: All Screens and other sources are build in "/src/", and I updated the "App.tsx" file!
+
+## Build a LandingScreen:
+First I build a landing screen. On the landing screen the user should be able to pick either to play as a guest or login. 
+
+
+
+# Getting Started(Building the app)
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
