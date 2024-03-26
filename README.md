@@ -20,7 +20,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 ## Overview
 
-This document provides a comprehensive overview of the `tttextreme_app`, a React Native application designed for [brief description of what the app does]. The app is built with a focus on [mention any key focuses such as user experience, performance, scalability, etc.].
+This document provides a comprehensive overview of the `tttextreme_app`, a React Native application designed for a online and offline tictactoe game. Currently a work in progress where you're only able to play as a guest and offline. I'm working on making it online where you can 1v1 either a random or a friend.
 
 ## Installation and Setup
 
