@@ -16,7 +16,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # tttextreme_app Documentation
 
->**Note**: To check how each screen works go to [Screens](#screens).
+>**Note**: To check how each screen works go to [Screens](#screens). I uses [the odin project](https://www.theodinproject.com/paths/full-stack-javascript/courses/react) tutorial for a big part of the webdevelopment
 
 ## Overview
 
