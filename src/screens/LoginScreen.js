@@ -23,10 +23,11 @@ const LoginScreen = ({ navigation }) => {
             });
 
             const json = await response.json();
+            console.log('Full API response:', json);
 
             if (json.success) {
                 // If succesfull it updates the AuthContext
-                login();
+                login(json.user); // Store the full user data
                 // Navigates to the Main(the main handles whether to shows the right screen based on the authentication status)
                 navigation.navigate('Main');
             } else {

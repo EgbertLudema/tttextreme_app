@@ -20,7 +20,6 @@ const TTTExtreme = ({ onGameOver }) => {
         setWinner(null);
     };
 
-    // Adjusted to handle draw conditions
     const checkSmallBoardWinner = (smallBoard, bigBoardIndex) => {
         const lines = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -48,7 +47,7 @@ const TTTExtreme = ({ onGameOver }) => {
             } else {
                 Alert.alert('Game Over', 'The game is a draw!');
             }
-            resetGame(); // Or handle as desired
+            resetGame();
         }
     }, [boardStatus]); // Dependency on boardStatus to re-evaluate after each change
 
