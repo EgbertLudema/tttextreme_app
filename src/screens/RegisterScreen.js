@@ -1,23 +1,31 @@
-// src/screens/LoginScreen.js
+// src/screens/RegisterScreen.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const { login } = useAuth();
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
+        if (password !== confirmPassword) {
+            Alert.alert("Registration Error", "Passwords do not match");
+            return;
+        }
+
         try {
-            const response = await fetch('https://tttextreme.com/api/userLogin.php', {
+            const response = await fetch('https://tttextreme.com/api/userRegister.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: username,
-                    password: password,
+                    username,
+                    email,
+                    password,
                 }),
             });
 
@@ -25,24 +33,21 @@ const LoginScreen = ({ navigation }) => {
             console.log('Full API response:', json);
 
             if (json.success) {
-                if (json.user.is_email_verified) {
-                    login(json.user); // Store the full user data
-                    navigation.navigate('Main');
-                } else {
-                    Alert.alert("Login Failed", "Please verify your email before logging in.");
-                }
+                Alert.alert("Registration Success", json.message, [
+                    { text: "OK", onPress: () => navigation.navigate('Login') }
+                ]);
             } else {
-                Alert.alert("Login Failed", json.message || "Invalid credentials");
+                Alert.alert("Registration Failed", json.message || "Unable to register");
             }
         } catch (error) {
             console.error(error);
-            Alert.alert("Login Error", "Unable to connect to the server");
+            Alert.alert("Registration Error", "Unable to connect to the server");
         }
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Register</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Username"
@@ -52,12 +57,27 @@ const LoginScreen = ({ navigation }) => {
             />
             <TextInput
                 style={styles.input}
+                placeholder="Email"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+            />
+            <TextInput
+                style={styles.input}
                 placeholder="Password"
                 secureTextEntry
                 value={password}
                 onChangeText={setPassword}
             />
-            <Button title="Login" onPress={handleLogin} />
+            <TextInput
+                style={styles.input}
+                placeholder="Confirm Password"
+                secureTextEntry
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+            />
+            <Button title="Register" onPress={handleRegister} />
         </View>
     );
 };
@@ -83,4 +103,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default RegisterScreen;

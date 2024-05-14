@@ -7,6 +7,7 @@ const LandingScreen = ({ navigation }) => {
             <Text style={styles.title}>TTTExtreme!!!</Text>
             <Button title='Play as guest' onPress={() => navigation.navigate('Main')} />
             <Button title="Login" onPress={() => navigation.navigate('Login')} />
+            <Button title="Register" onPress={() => navigation.navigate('Register')} />
         </View>
     );
 };
