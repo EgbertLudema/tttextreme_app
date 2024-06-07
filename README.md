@@ -62,21 +62,32 @@ The entry point of the application is `App.js`, which sets up the navigation and
 >**Note**: All Screens and other sources are build in "/src/", and I updated the "App.tsx" file! I developed the app using a android studio emulator(I haven't tested anything on IOS yet).
 
 ### LandingScreen:
-First I build a landing screen. On the landing screen the user should be able to pick either to play as a guest or login. Clicking on the guest button directs the user to the Main Navigator. The main navigator shows the GuestScreen if the user is not logged in. The Login button redirects the user to LoginScreen.
+First I build a landing screen. On the landing screen the user should be able to pick either to play as a guest, login or register. Clicking on the guest button directs the user to the Main Navigator. The main navigator shows the GuestScreen if the user is not logged in. The Login button redirects the user to LoginScreen and the register button to the RegisterScreen.
 
 ### Guest screen:
 As soon you the user enters the guest screen they get to see 2 buttons (classic and extreme) that alternate the board between the classic and extreme version of the game. The games played is offline(local).
+(Eventually I will add a 3th button for the Only 3 gamemode)
 
 ### Login screen:
-Before I could build a login screen I had to build a API on my server. Currently I have 1 API call that gathers the userinfo of the given username.
+Before I could build a login screen I had to build a API on my server. Currently I have 3 API calls. 
+1. The first call gathers all user info, this is used for login in and displaying the user info. 
+2. The second call is used for registrering a user, and check all cridentials before posting to the database.
+3. The (currently) last call is used for fetching the scoreboard.
 
-The login screen contains a form where the user can fill in their cridentials. Once the user clicks the login button JS tries to fetch the API response sending the login cridentials. The API compares the send password with the password of the username it gathered from the database. If it's a match the response is succes and the user is being redirected to the Main Navigation.
+The login screen contains a form where the user can fill in their cridentials. Once the user clicks the login button JS tries to fetch the API response sending the login cridentials. The API compares the send password with the password of the username it gathered from the database. If it's a match the response is succes and the user is being redirected to the (Main Navigation)[###mainnavigation].
 
 ### Main Navigation
-Here I utilize `@react-navigation` for handlin the navigation between screens. Also I alternate the navigation based on the login status.
-The Main navigator is the bottom menu of the app and handles showing different screens. 
+Here I utilize `@react-navigation` for handling the navigation between screens. I also alternate the navigation based on the login status. The main navigator is the bottom menu of the app and handles showing different screens.
 
-## UserScreen, ScoreboardScreen & ProfileScreen
+The main navigation is wrapped with the Auth and Scoreboard providers. This way, the app always has access to the information provided by these contexts
+
+### ScoreboardScreen
+This screen shows a unstyled scoreboard, fetched from a API call.
+
+## ProfileScreen, all game screens
 Currently I'm working on the these screens. So nothing to see here :P
+
+## Styling
+Currently I started styling the UserScreen and getting to know how to style withing a react native app.
 
 -----
