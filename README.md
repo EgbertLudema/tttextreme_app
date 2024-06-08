@@ -20,7 +20,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 ## Overview
 
-This document provides a comprehensive overview of the `tttextreme_app`, a React Native application designed for a online and offline tictactoe game. Currently a work in progress where you're only able to play as a guest and offline. I'm working on making it online where you can 1v1 either a random or a friend.
+This document provides a comprehensive overview of the `tttextreme_app`, a React Native application designed for a online and offline tictactoe game.  You're able to register, login and show all screens for online or local, or just play as a gues. I'm working on making it online where you can 1v1 either a random or a friend making use of websockets.
 
 ## Installation and Setup
 
@@ -34,9 +34,14 @@ To set up the `tttextreme_app` locally, you'll need to have Node.js (version 18 
 
 ## Key Dependencies
 
-The app is built using React Native (`v0.73.4`) and currently only utilizes one package:
+The app is built using React Native (`v0.73.4`) and includes several key dependencies to enhance functionality:
 
-- `@react-navigation/native` and related packages for navigation between different screens within the app.
+- `@react-navigation/native` (`v6.1.15`): For navigation between different screens within the app.
+- `@react-navigation/bottom-tabs` (`v6.5.18`): For bottom tab navigation.
+- `@react-navigation/elements` (`v1.3.28`): Provides UI components used in navigation.
+- `@react-navigation/native-stack` (`v6.9.18`): For stack-based navigation.
+- `react-native-safe-area-context` (`v4.9.0`): For handling safe area boundaries in iOS and Android.
+- `react-native-screens` (`v3.29.0`): Optimizes navigation performance by using native views for navigation.
 
 For a full list of dependencies, refer to the `package.json` file in the project's root directory.
 
@@ -45,8 +50,10 @@ For a full list of dependencies, refer to the `package.json` file in the project
 The `tttextreme_app` is structured into several key directories and files:
 
 - `src/screens`: Contains the UI components for different screens (LoginScreen, LandingScreen, MainScreen).
-- `src/navigation`: Manages the navigation logic for the app, including `GuestTabNavigator` and `UserTabNavigator` for handling guest and user navigation respectively.
-- `src/context`: Houses the `AuthContext` for managing authentication state throughout the app.
+- `src/navigation`: Manages the navigation logic for the app, including `GuestTabNavigator`, `UserTabNavigator` for handling guest and user navigation respectively and a custom UserHeader inside the `src/navigation/headers` folder.
+- `src/context`: Houses the `AuthContext` for managing authentication state throughout the app and `ScoreboardContext` for keeping track of all information on the scoreboard.
+- `src/components`: Contains different game logic files.
+- `src/assets`: Contains assets like, logo's, images or icons.
 
 The entry point of the application is `App.js`, which sets up the navigation and global context providers.
 
@@ -81,8 +88,11 @@ Here I utilize `@react-navigation` for handling the navigation between screens. 
 
 The main navigation is wrapped with the Auth and Scoreboard providers. This way, the app always has access to the information provided by these contexts
 
+### UserScreen
+On this screen the user is able to switch between 2 tabs, online or local(offline). Both tabs have the same games, but the game screens arent finished yet. This is the first and only screen I started styling.
+
 ### ScoreboardScreen
-This screen shows a unstyled scoreboard, fetched from a API call.
+This screen shows a unstyled scoreboard, fetched from a API call using the ScoreboardContext.
 
 ## ProfileScreen, all game screens
 Currently I'm working on the these screens. So nothing to see here :P
