@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "996887310749",
+    "project_id": "tttxtremeapp",
+    "storage_bucket": "tttxtremeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996887310749:android:0bb29402b399a99580ff74",
+        "android_client_info": {
+          "package_name": "com.tttextreme_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996887310749-kb9k74v0j3old4f8d7keb665mesb86j2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tttextreme_app",
+            "certificate_hash": "132cedb254873760c0c943479bee3835e6be1286"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvcmnErZQiTLy703HQL_jQLMvh6fC-2AA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import GoogleSignInButton from '../components/GoogleSignInButton';
 
 const LoginScreen = ({ navigation }) => {
     const [username, setUsername] = useState('');
@@ -58,6 +59,7 @@ const LoginScreen = ({ navigation }) => {
                 onChangeText={setPassword}
             />
             <Button title="Login" onPress={handleLogin} />
+            <GoogleSignInButton navigation={navigation} />
         </View>
     );
 };
